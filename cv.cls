@@ -22,6 +22,9 @@
 \usepackage[framemethod=TikZ]{mdframed} % For multiline oval boxes
 \usepackage{xifthen} % For optional command arguments
 %\usepackage{pagecolor} % Background color of the document
+\usepackage{array}
+\RequirePackage{fix-cm}
+
 
 \graphicspath{{./images/}} % Path to graphic files
 
@@ -114,15 +117,21 @@
 \newcommand{\timeplace}[2]{ % Used for times and places
 \color{lightgrey}\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{9pt}{12pt}\selectfont {\faCalendar\ #1 \ \ \ \faMapMarker\ #2\\} \normalfont \normalsize}
 
-
 \newcommand{\cvskill}[2]{ % Used for skills title
 \color{darkgrey}\fontspec[Path = fonts/raleway/]{Raleway-Bold}\fontsize{11pt}{12pt}\selectfont {
-\includegraphics[width=0.4cm,height=0.4cm,keepaspectratio]{{#1}}\ {#2}}
-\normalfont \small}
+\includegraphics[width=0.4cm,height=0.4cm,keepaspectratio]{{#1}}\ {#2}} \normalfont \small}
 
 \newcommand{\weblink}[2]{ % Used for web links
 \color{blue1}\fontspec[Path = fonts/lato/]{Lato-RegIta}\fontsize{9pt}{9pt}\selectfont\ {\href{#1}{\faChain\ #2}} \normalfont \small}
 
+
+%----------------------------------------------------------------------------------------
+%   TABLES
+%----------------------------------------------------------------------------------------
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 %----------------------------------------------------------------------------------------
 %	STAR RATINGS
@@ -161,96 +170,3 @@
 \newcommand*\flag[1] { % country flag
     \includegraphics[width=.3cm]{{#1}}}
 
-
-%----------------------------------------------------------------------------------------
-%	MULTILINE FRAMES
-%----------------------------------------------------------------------------------------
-
-\mdfdefinestyle{MultilineOvalBox}{
-	rightmargin=0pt,
-    leftmargin=0pt,
-    skipabove=0pt,
-    skipbelow=0pt,
-    linecolor=blue1,
-    outerlinewidth=0.1pt,
-    roundcorner=2pt,
-    innertopmargin=3pt,
-    innerbottommargin=3pt,
-    innerrightmargin=5pt,
-    innerleftmargin=5pt,
-    backgroundcolor=white}
-
-\newcommand\mlovalbox[1]{ % Multiline oval box
-    \begin{mdframed}[style=MultilineOvalBox] {#1} \end{mdframed} \vspace{-5pt}}
-
-%----------------------------------------------------------------------------------------
-%   WHEELCHART
-%----------------------------------------------------------------------------------------
-
-\newcommand{\wheelchart}[3]{%
-    \begingroup\centering
-    \def\innerradius{#2}%
-    \def\outerradius{#1}%
-    % Calculate total
-    \pgfmathsetmacro{\totalnum}{0}%
-    \foreach \value/\colour/\name in {#3} {%
-        \pgfmathparse{\value+\totalnum}%
-        \global\let\totalnum=\pgfmathresult%
-    }%
-    \begin{tikzpicture}
-
-      % Calculate the thickness and the middle line of the wheel
-      \pgfmathsetmacro{\wheelwidth}{\outerradius-\innerradius}
-      \pgfmathsetmacro{\midradius}{(\outerradius+\innerradius)/2}
-
-      % Rotate so we start from the top
-      \begin{scope}[rotate=-90]
-
-      % Loop through each value set. \cumnum keeps track of where we are in the wheel
-      \pgfmathsetmacro{\cumnum}{0}
-      \foreach \value/\width/\colour/\name in {#3} {
-            \pgfmathsetmacro{\newcumnum}{\cumnum + \value/\totalnum*360}
-
-            % Calculate the percent value
-            \pgfmathsetmacro{\percentage}{\value/\totalnum*100}
-            % Calculate the mid angle of the colour segments to place the labels
-            \pgfmathsetmacro{\midangle}{-(\cumnum+\newcumnum)/2}
-
-            % This is necessary for the labels to align nicely
-            \pgfmathparse{
-               (-\midangle>180?"west":"east")
-            } \edef\textanchor{\pgfmathresult}
-            \pgfmathparse{
-               (-\midangle>180?"flush left":"flush right")
-            } \edef\textalign{\pgfmathresult}
-            \pgfmathsetmacro\labelshiftdir{1-2*(-\midangle<180)}
-
-            % Draw the color segments. Somehow, the \midrow units got lost, so we add 'pt' at the end. Not nice...
-            \filldraw[draw=white,fill=\colour] (-\cumnum:\outerradius) arc (-\cumnum:-(\newcumnum):\outerradius) --
-            (-\newcumnum:\innerradius) arc (-\newcumnum:-(\cumnum):\innerradius) -- cycle;
-
-            % Draw the data labels
-            \draw  [*-,thin,black] node [append after command={(\midangle:\midradius pt) -- (\midangle:\outerradius + 1ex) -- (\tikzlastnode)}] at (\midangle:\outerradius + 1ex) [xshift=\labelshiftdir*0.5cm,inner sep=1ex, outer sep=0pt, text width=\width,anchor=\textanchor,align=\textalign,font=\small,text=darkgrey]{\name};
-            % Set the old cumulated angle to the new value
-            \global\let\cumnum=\newcumnum
-        }
-      \end{scope}
-
-      % Glyhpicon in the center of the wheelchart
-      %\node [color=black]{\huge{\faCode}};
-
-    \end{tikzpicture}\par
-    \endgroup
-}
-
-
-\newcommand{\pageframe}{\begin{tikzpicture}[overlay,remember picture]
-\draw [line width=5pt,color=blue1]
-    ($ (current page.north west) + (0.1cm, -0.1cm) $)
-    rectangle
-    ($ (current page.south east) + (-0.1cm, 0.1cm) $);
-\draw [line width=2pt,color=blue1]
-    ($ (current page.north west) + (0.3cm, -0.3cm) $)
-    rectangle
-    ($ (current page.south east) + (-0.3cm, 0.3cm) $);
-\end{tikzpicture}}
