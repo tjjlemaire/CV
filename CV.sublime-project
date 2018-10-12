@@ -1,0 +1,27 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.sublime-workspace",
+				"*.out",
+				"*.log",
+				"*.aux",
+				"*.synctex.gz",
+				"*.pdf",
+				"*.bbl",
+				"*.blg",
+				"*.gitignore",
+				"xetex.def"
+			],
+			"folder_exclude_patterns":
+			[
+				"images",
+				"fonts"
+			],
+			"path": "."
+		}
+	],
+	"translate_tabs_to_spaces": true
+}

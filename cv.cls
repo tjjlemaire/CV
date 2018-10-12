@@ -9,7 +9,7 @@
 \LoadClass{article}
 
 \usepackage[hmargin=0.5cm, vmargin=0.75cm]{geometry} % Specifies horizontal and vertical page margins
-\usepackage[hidelinks = true]{hyperref} % Required for links
+
 \usepackage[usenames,dvipsnames]{xcolor} % Required for custom colors
 \usepackage{fontspec} % Required for specifying custom fonts in XeLaTeX
 \usepackage{titlesec} % Required for customizing section/subsection/etc titles
@@ -24,6 +24,11 @@
 %\usepackage{pagecolor} % Background color of the document
 \usepackage{array}
 \RequirePackage{fix-cm}
+
+\usepackage{bibentry} % For publications list
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[hidelinks]{hyperref} % Required for links
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 
 
 \graphicspath{{./images/}} % Path to graphic files
@@ -147,6 +152,13 @@
 \newcommand{\fourstars}{\faStar\ \faStar\ \faStar\ \faStar\ \faStarO}
 \newcommand{\fourstarshalf}{\faStar\ \faStar\ \faStar\ \faStar\ \faStarHalfFull}
 \newcommand{\fivestars}{\faStar\ \faStar\ \faStar\ \faStar\ \faStar}
+
+
+\newcommand{\onecircle}{\faCircle\ \faCircleO\ \faCircleO\ \faCircleO\ \faCircleO}
+\newcommand{\twocircles}{\faCircle\ \faCircle\ \faCircleO\ \faCircleO\ \faCircleO}
+\newcommand{\threecircles}{\faCircle\ \faCircle\ \faCircle\ \faCircleO\ \faCircleO}
+\newcommand{\fourcircles}{\faCircle\ \faCircle\ \faCircle\ \faCircle\ \faCircleO}
+\newcommand{\fivecircles}{\faCircle\ \faCircle\ \faCircle\ \faCircle\ \faCircle}
 
 %----------------------------------------------------------------------------------------
 %	ICONS
