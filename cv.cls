@@ -1,5 +1,5 @@
 %----------------------------------------------------------------------------------------
-%	CLASS OPTIONS AND REQUIRED PACKAGES
+%	CLASS OPTIONS
 %----------------------------------------------------------------------------------------
 
 \ProvidesClass{cv}[2016/04/26 CV class]
@@ -8,8 +8,13 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
-\usepackage[hmargin=0.5cm, vmargin=0.75cm]{geometry} % Specifies horizontal and vertical page margins
+\newif\ifenglish
 
+%----------------------------------------------------------------------------------------
+%   REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage[hmargin=0.5cm, vmargin=0.75cm]{geometry} % Specifies horizontal and vertical page margins
 \usepackage[usenames,dvipsnames]{xcolor} % Required for custom colors
 \usepackage{fontspec} % Required for specifying custom fonts in XeLaTeX
 \usepackage{titlesec} % Required for customizing section/subsection/etc titles
@@ -21,18 +26,24 @@
 \usepackage{fancybox} % For oval boxes
 \usepackage[framemethod=TikZ]{mdframed} % For multiline oval boxes
 \usepackage{xifthen} % For optional command arguments
-%\usepackage{pagecolor} % Background color of the document
 \usepackage{array}
 \RequirePackage{fix-cm}
+\usepackage[hidelinks]{hyperref} % Required for links
 
+%----------------------------------------------------------------------------------------
+%   BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{plain}
 \usepackage{bibentry} % For publications list
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
-\usepackage[hidelinks]{hyperref} % Required for links
 \makeatletter\let\@bibitem\saved@bibitem\makeatother
 
+%----------------------------------------------------------------------------------------
+%   PATHS
+%----------------------------------------------------------------------------------------
 
 \graphicspath{{./images/}} % Path to graphic files
-
 
 %----------------------------------------------------------------------------------------
 %   SHORTCUTS
@@ -131,6 +142,101 @@
 
 
 %----------------------------------------------------------------------------------------
+%   EXPLICIT SECTIONS WITH ASSOCIATED ICONS
+%----------------------------------------------------------------------------------------
+
+
+
+\newcommand{\details}{
+    \vspace{-5pt}
+    \address{Rue des Maraîchers 46}{1205 Genève}{CH}\ \ \ \email{theo.lemaire1@gmail.com}\ \ \ \mobilephone{+41 79 629 39 05}\ \ \ \linkedin{https://ch.linkedin.com/in/theolemaire}{theolemaire}
+}
+
+\newcommand{\experience}{
+    \section{\texorpdfstring{\faBriefcase}\ \ \ifenglish experience \else expérience \fi}\sectionline}
+
+\newcommand{\techskills}{
+    \section{\texorpdfstring{\faWrench}\ \ \ifenglish technical Skills \else compétences techniques \fi}\sectionline}
+
+\newcommand{\gpa}{
+    \ifenglish GPA: \else Moyenne: \fi
+}
+
+\newcommand{\education}{
+    \section{\texorpdfstring{\faGraduationCap} \ \ \ifenglish education \else formation \fi}\sectionline
+
+    \subsection{\ifenglish MSc in Bioengineering \else Master en Bioingénierie \fi}
+    \subsection{\ifenglish Minor in Neuroprosthetics \else Mineur en Neuroprothèses \fi}
+    \descript{\href{http://www.epfl.ch}{EPF Lausanne}}
+    \timeplace{Sept 2013 - Sept 2015}{Lausanne, CH}
+    \gpa5.34 / 6.0
+    \sectionspace
+
+    \subsection{\ifenglish BSc in Life Sciences \& Technologies\else Bachelor en Sciences \& Technologies du Vivant \fi}
+    \descript{\href{http://www.epfl.ch}{EPF Lausanne}}
+    \timeplace{Sept 2009 -July 2012}{Lausanne, CH}
+    \gpa4.92 / 6.0
+    \sectionspace
+
+    \subsection{\ifenglish Scientific baccalaureate \else Baccalauréat scientifique \fi}
+    \descript{Lycée Int. Ferney Voltaire}
+    \timeplace{Sept 2006 - July 2009}{Ferney, FR}
+    \gpa18.71 / 20.0
+    \sectionspace
+}
+
+\newcommand{\coursework}{
+    \section{\texorpdfstring{\faBook} \ \ \ifenglish coursework \else cours suivis \fi}\sectionline}
+
+\newcommand{\languages}{
+    \section{\texorpdfstring{\faComments} \ \ \ifenglish languages \else langues \fi}\sectionline
+
+    \noindent\begin{tabular}{@{}ll}
+    \textbf{\ifenglish French \else Français \fi} & \fivecircles \\
+    \textbf{\ifenglish English \else Anglais \fi} & \fivecircles \\
+    \textbf{\ifenglish German \else Allemand \fi} & \threecircles \\
+    \textbf{\ifenglish Russian \else Russe \fi} & \onecircle \\
+    \end{tabular}
+    \sectionspace
+}
+
+\newcommand{\hobbies}{
+    \section{\texorpdfstring{\faHeart}\ \ hobbies}\sectionline
+
+    \noindent\begin{tabular}{@{}c@{}c@{}c@{}c@{}}
+        \glyph{atom.pdf}{Science} &
+        \glyph{taekwondo.pdf}{Taekwondo} &
+        \glyph{football.pdf}{Football} &
+        \glyph{television.pdf}{\ifenglish TV Shows \else Séries TV \fi}\\
+        \glyph{skiing.pdf}{\ifenglish Skiing \else Ski  \fi} &
+        \glyph{mountains.pdf}{\ifenglish Hiking \else Randonnée \fi} &
+        \glyph{cycling.pdf}{\ifenglish Cycling \else Vélo \fi} &
+        \glyph{travel.pdf}{\ifenglish Travels \else Voyages \fi}
+    \end{tabular}
+}
+
+\newcommand{\publications}{
+    \section{\texorpdfstring{\faFileText}\ \ publications}\sectionline
+    \nobibliography{mypublications}
+    \begin{itemize}
+        \item \bibentry{lemaire_understanding_2019} \weblink{https://tnewebnice.epfl.ch/viewer/}{Web app}
+    \end{itemize}
+}
+
+\newcommand{\projects}{
+    \section{\texorpdfstring{\faClipboard} \ \ \ifenglish academic projects \else projets académiques \fi}\sectionline}
+
+\newcommand{\otherskills}{
+    \centering{
+        \cvskill{git.pdf}{Git} \tbl{}
+        \cvskill{illustrator.pdf}{Illustrator} \tbl{}
+        \cvskill{blank.pdf}{\hspace{-5pt}\LaTeX} \tbl{}
+        \cvskill{labview.pdf}{LabVIEW}
+    }
+}
+
+
+%----------------------------------------------------------------------------------------
 %   TABLES
 %----------------------------------------------------------------------------------------
 
@@ -139,20 +245,8 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 %----------------------------------------------------------------------------------------
-%	STAR RATINGS
+%	CIRCLE RATINGS
 %----------------------------------------------------------------------------------------
-
-\newcommand{\halfstar}{\faStarHalfFull\ \faStarO\ \faStarO\ \faStarO\ \faStarO}
-\newcommand{\onestar}{\faStar\ \faStarO\ \faStarO\ \faStarO\ \faStarO}
-\newcommand{\onestarhalf}{\faStar\ \faStarHalfFull\ \faStarO\ \faStarO\ \faStarO}
-\newcommand{\twostars}{\faStar\ \faStar\ \faStarO\ \faStarO\ \faStarO}
-\newcommand{\twostarshalf}{\faStar\ \faStar\ \faStarHalfFull\ \faStarO \faStarO}
-\newcommand{\threestars}{\faStar\ \faStar\ \faStar\ \faStarO\ \faStarO}
-\newcommand{\threestarshalf}{\faStar\ \faStar\ \faStar\ \faStarHalfFull\ \faStarO}
-\newcommand{\fourstars}{\faStar\ \faStar\ \faStar\ \faStar\ \faStarO}
-\newcommand{\fourstarshalf}{\faStar\ \faStar\ \faStar\ \faStar\ \faStarHalfFull}
-\newcommand{\fivestars}{\faStar\ \faStar\ \faStar\ \faStar\ \faStar}
-
 
 \newcommand{\onecircle}{\faCircle\ \faCircleO\ \faCircleO\ \faCircleO\ \faCircleO}
 \newcommand{\twocircles}{\faCircle\ \faCircle\ \faCircleO\ \faCircleO\ \faCircleO}

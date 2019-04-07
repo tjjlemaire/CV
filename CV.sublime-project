@@ -1,13 +1,4 @@
 {
-	"build_systems":
-	[
-		{
-			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-			"name": "Anaconda Python Builder",
-			"selector": "source.python",
-			"shell_cmd": "\"C:\\ProgramData\\Anaconda3\\python.exe\" -u \"$file\""
-		}
-	],
 	"folders":
 	[
 		{
@@ -17,7 +8,10 @@
 				"*.out",
 				"*.log",
 				"*.aux",
+				"*.bcf",
+				"*.run.xml",
 				"*.synctex.gz",
+				"*.synctex.gz(busy)",
 				"*.pdf",
 				"*.bbl",
 				"*.blg",

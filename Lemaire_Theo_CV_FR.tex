@@ -1,36 +1,33 @@
 %!TEX program = xelatex
 \documentclass[a4paper]{cv}
+\englishfalse
 \begin{document}
-\pagecolor{bg}
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
-
 \begin{center}
 \name{Théo Lemaire}\\
 \vspace{5pt}
-\tag{Bioingénieur \& programmeur versatile}\\
-\vspace{-5pt}
-\address{Rue des Maraîchers 46}{1205 Genève}{CH}\ \ \ \email{theo.lemaire1@gmail.com}\ \ \ \mobilephone{+41 79 629 39 05}\ \ \ \linkedin{https://ch.linkedin.com/in/theolemaire}{theolemaire}
+\tag{Ingénieur \tbl{} Neuroscientifique \tbl{} Programmeur versatile}\\
+\details
 \end{center}
-
 %----------------------------------------------------------------------------------------
 %	LEFT COLUMN
 %----------------------------------------------------------------------------------------
 \hspaceleft\begin{minipage}[t]{0.6\textwidth}
 
-\section{\texorpdfstring{\faBriefcase}\ \ Expérience}\sectionline
+\experience
 
-\runsubsection{Doctorat en Neuroingénierie}
+\runsubsection{Doctorat en Neurosciences computationnelles}
 \descript{| \href{http://www.http://tne.epfl.ch/}{TNE Lab, Campus Biotech}}
 \timeplace{Depuis Avr 2016}{Geneva, CH}
-Dvpt. de modèles computationnels pour comprendre et optimiser la \emph{Neuromodulation par Ultrasons} aux échelles cellulaire et anatomique. \weblink{https://tnewebnice.epfl.ch/viewer/}{Web app}
+Dvpt. de modèles computationnels pour comprendre et optimiser la \emph{Neuromodulation par Ultrasons} aux échelles cellulaire et anatomique.
 \sectionspace
 
 \runsubsection{Moniteur de Ski Alpin}
 \descript{| \href{http://www.esf.net}{Ecole du Ski Français}}
 \timeplace{Depuis Janv 2013}{Monts Jura, FR}
-Leçons privées et collectives aux skieurs de tous âges et tous niveaux. En charge d'un groupe compétition depuis 2016. Formation au diplôme d’état en cours.
+Leçons privées et collectives aux skieurs de tous âges et tous niveaux. En charge d'un groupe compétition pendant 4 ans. Formation au diplôme d’état en cours.
 \sectionspace
 
 \runsubsection{Professeur de Mathématiques}
@@ -42,23 +39,24 @@ Enseignement à 3 classes de collège (environ 75 élèves, entre 10 et 15 ans).
 \runsubsection{Stagiaire Ingénieur Software}
 \descript{| \href{http://www.zenithtechnologies.com/}{Zenith Technologies}}
 \timeplace{Avr – Août 2013}{Cork, IRL}
-Dvpt. d'un programme \emph{C++} extrayant des informations d'une base de données pour fournir aux chefs d’équipe un aperçu global de l'évolution de leur projet. Création de scripts \emph{VBA} utilisés au quotidien pour générer de la documentation.\sectionspace
+Dvpt. d'un programme \emph{C++} extrayant des informations d'une base de données pour fournir aux chefs d’équipe un aperçu global de l'évolution de leur projet.
+\sectionspace
 
 \runsubsection{Stagiaire en Cinésiologie}
 \descript{| \href{http://www.hug-ge.ch/chirurgie-orthopedique-traumatologie-appareil/laboratoire-cinesiologie}{Hôpitaux Universitaires de Genève}}
 \timeplace{Août 2012 - Janv 2013}{Genève, CH}
-Dvpt. d'une application \emph{Matlab} (UI, outils de traitement \& visualisation, interaction avec la base de données de l'hôpital, ...) pour analyser les données biomécaniques d’examens cliniques. Utilisé pour les rapports et publications scientifiques.
+Dvpt. d'une application \emph{Matlab} pour analyser les données biomécaniques d’examens cliniques, utilisée pour les rapports et publications scientifiques.
 \sectionspace
 
-\section{\texorpdfstring{\faLineChart} \ \ Projets académiques}\sectionline
+\projects
 
 \runsubsection{Projet de Master en Neuroprothèses}
-\descript{TNE Lab, EPFL}
-Modélisation numérique de différents types d'éléctrodes dans un nerf périphérique, couplant des modèles FEM de propagation éléctromagnétique (plateforme \href{http://www.zurichmedtech.com/sim4life/}{\emph{Sim4Life}}) à des modèles de fibres nerveuses (simulateur \href{https://neuron.yale.edu/neuron/}{\emph{NEURON}}).
+\descript{| \href{http://tne.epfl.ch/}{TNE Lab, EPFL}}
+Dvpt. de modèles computationnels afin de prédire les performances de différents types d'électrode de stimulation implantées dans un nerf périphérique.
 \sectionspace
 
 \runsubsection{Projet de Biorobotique}
-\descript{BIOROB Lab, EPFL}
+\descript{| \href{http://dhlab.epfl.ch/}{DH Lab, EPFL}}
 Dvpt. d'un outil de vision par ordinateur et d'une stratégie de navigation permettant à un robot d'évoluer en slalom à travers des portes rectangulaires.
 \sectionspace
 
@@ -67,7 +65,7 @@ Dvpt. d'un outil de vision par ordinateur et d'une stratégie de navigation perm
 Dvpt. d'un nouveau modèle épidémique spatio-temporel pour étudier la propagation de la peste à Venise au moyen-âge. \weblink{http://veniceatlas.epfl.ch/atlas/experience/simulation/the-plague/}{Venice Atlas}
 \sectionspace
 
-\section{\texorpdfstring{\faWrench}\ \ Compétences techniques}\sectionline
+\techskills
 
 \def\arraystretch{1.5}
 \begin{tabular}{R{0.21\textwidth} L{0.7\textwidth}}
@@ -85,12 +83,7 @@ Dvpt. d'un nouveau modèle épidémique spatio-temporel pour étudier la propaga
 \end{tabular}
 
 \vspace{5pt}
-\centering{
-	\cvskill{git.pdf}{Git} \tbl{}
-	\cvskill{illustrator.pdf}{Illustrator} \tbl{}
-	\cvskill{blank.pdf}{\hspace{-5pt}\LaTeX} \tbl{}
-	\cvskill{labview.pdf}{LabVIEW}
-}
+\otherskills
 
 \end{minipage}
 \hsepcol
@@ -99,27 +92,9 @@ Dvpt. d'un nouveau modèle épidémique spatio-temporel pour étudier la propaga
 %----------------------------------------------------------------------------------------
 \begin{minipage}[t]{0.33\textwidth}
 
-\section{\texorpdfstring{\faGraduationCap} \ \ Formation}\sectionline
+\education
 
-\subsection{Master en Bioingénierie avec Mineur en Neuroprothèses}
-\descript{\href{http://www.epfl.ch}{EPF Lausanne}}
-\timeplace{Sept 2013 - Sept 2015}{Lausanne, CH}
-Moyenne: 5.34 / 6.0
-\sectionspace
-
-\subsection{Bachelor en Sciences \& Technologies du Vivant}
-\descript{\href{http://www.epfl.ch}{EPF Lausanne}}
-\timeplace{Sept 2009 - Juil 2012}{Lausanne, CH}
-Moyenne: 4.92 / 6.0
-\sectionspace
-
-\subsection{Baccalauréat scientifique}
-\descript{Lycée Int. Ferney Voltaire}
-\timeplace{Sept 2006 - Juil 2009}{Ferney, FR}
-moyenne: 18.71 / 20.0
-\sectionspace
-
-\section{\texorpdfstring{\faBook} \ \ Cours Suivis}\sectionline
+\coursework
 
 \subsection{Graduate}
 Neuroprosthèses sensorimotrices\\
@@ -145,22 +120,13 @@ Dynamique des fluides \tbl{} Transport\\
 Biothermodynamique \tbl{} Neuroscience
 \sectionspace
 
-\section{\texorpdfstring{\faComments} \ \ Langues}\sectionline
+\languages
 
-\noindent\begin{tabular}{@{}ll}
-\textbf{Français} & \fivecircles \\
-\textbf{Anglais} & \fivecircles \\
-\textbf{Allemand} & \threecircles \\
-\textbf{Russe} & \onecircle \\
-\end{tabular}
-\sectionspace
-
-\section{\texorpdfstring{\faThumbsUp}\ \ Hobbies}\sectionline
-
-\noindent\begin{tabular}{@{}c@{}c@{}c@{}c@{}}
-\glyph{atom.pdf}{Science} & \glyph{taekwondo.pdf}{Taekwondo} & \glyph{football.pdf}{Football} & \glyph{television.pdf}{Séries TV}\\
-\glyph{skiing.pdf}{Ski} & \glyph{mountains.pdf}{Randonnée} & \glyph{cycling.pdf}{Vélo} & \glyph{travel.pdf}{Voyages}\\
-\end{tabular}
+\hobbies
 
 \end{minipage}
+%----------------------------------------------------------------------------------------
+%	VERSO
+%----------------------------------------------------------------------------------------
+\publications
 \end{document}
