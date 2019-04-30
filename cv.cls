@@ -87,7 +87,12 @@
     \color{darkgrey}\fontspec[Path = fonts/raleway/]{Raleway-Bold}\fontsize{50pt}{50pt}\selectfont {#1} \normalfont \normalsize \vspace{5pt}}
 
 \newcommand{\tag}[1]{ % Used for the tag line under the name
-    \color{blue1}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{13pt}{14pt}\selectfont #1 \normalfont \normalsize \vspace{10pt}}
+    \color{blue1}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{13pt}{14pt}\selectfont #1 \normalfont \normalsize \vspace{5pt}}
+
+\newcommand{\photo}{
+    \vspace{-15pt}
+    \includegraphics[width=2cm]{tl}
+}
 
 \newcommand\address[3]{% Used for the postal address, with glyphicon
     \color{blue1} \faHome\ \textbf{#1} \tbl{} \textbf{#2} \tbl{} \textbf{#3}}
@@ -100,6 +105,9 @@
 
 \newcommand\linkedin[2]{% Used for the Linkedin profile, with glyphicon
     \color{blue1} \faLinkedinSquare\ //\href{#1}{\textbf{#2}}}
+
+\newcommand\github[2]{% Used for the Github profile, with glyphicon
+    \color{blue1} \faGithub\ //\href{#1}{\textbf{#2}}}
 
 
 %----------------------------------------------------------------------------------------
@@ -145,11 +153,11 @@
 %   EXPLICIT SECTIONS WITH ASSOCIATED ICONS
 %----------------------------------------------------------------------------------------
 
-
-
 \newcommand{\details}{
-    \vspace{-5pt}
-    \address{Rue des Maraîchers 46}{1205 Genève}{CH}\ \ \ \email{theo.lemaire1@gmail.com}\ \ \ \mobilephone{+41 79 629 39 05}\ \ \ \linkedin{https://ch.linkedin.com/in/theolemaire}{theolemaire}
+    \address{Rue des Maraîchers 46}{1205 Genève}{CH}\ \ \ \mobilephone{+41 79 629 39 05}\\
+    \email{theo.lemaire1@gmail.com}\ \ \ \linkedin{https://ch.linkedin.com/in/theolemaire}{theolemaire}
+    \ \ \ \github{https://github.com/tjjlemaire}{tjjlemaire}
+    \vspace{15pt}
 }
 
 \newcommand{\experience}{
@@ -166,13 +174,13 @@
     \section{\texorpdfstring{\faGraduationCap} \ \ \ifenglish education \else formation \fi}\sectionline
 
     \subsection{\ifenglish MSc in Bioengineering \else Master en Bioingénierie \fi}
-    \subsection{\ifenglish Minor in Neuroprosthetics \else Mineur en Neuroprothèses \fi}
+    \subsection{\ifenglish Minor in Neuroprosthetics \else Mineur en Neuroprothétiques \fi}
     \descript{\href{http://www.epfl.ch}{EPF Lausanne}}
     \timeplace{Sept 2013 - Sept 2015}{Lausanne, CH}
     \gpa5.34 / 6.0
     \sectionspace
 
-    \subsection{\ifenglish BSc in Life Sciences \& Technologies\else Bachelor en Sciences \& Technologies du Vivant \fi}
+    \subsection{\ifenglish BSc in Life Sciences \& Technologies\else Bachelor Sciences \& Tech. Vivant \fi}
     \descript{\href{http://www.epfl.ch}{EPF Lausanne}}
     \timeplace{Sept 2009 -July 2012}{Lausanne, CH}
     \gpa4.92 / 6.0
